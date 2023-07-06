@@ -14,14 +14,35 @@
               <h3>Hi {{loggedInUser.username}} </h3></div>
           </div>
 
-          <div class="icons">
-            <div class="icon">
+          {{!-- <div class="icons">
+            <div class="dropbtn icon" id="optionsDiv" onclick="showDropdown()">
               <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
             </div>
             <div class="icon">
               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </div>
-          </div>
+          </div> --}}
+<div class="dropdown">
+  
+            <div class="icon dropbtn">
+              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+            </div>
+  {{!-- <button class="dropbtn">Dropdown</button> --}}
+  <div class="dropdown-content">
+    <div onclick="logout()">
+      <i class="fa fa-pencil-square-o" aria-hidden="true">Logout</i>
+    </div>
+    {{!-- <a href="#">Logout</a> --}}
+ 
+  </div>
+</div>
+ 
+          {{!-- <div id="myDropdown"  class="dropdown-content">
+                        <div>
+                         <i class="fa fa-pencil-square-o" aria-hidden="true">Logout</i>
+                        </div>
+         
+          </div> --}}
 
         </div>
         <div class="friend-search">

@@ -402,6 +402,19 @@ app.post("/register", async (req, res) => {
   }
 });
 
+app.post("/logout", async (req, res) => {
+  try {
+    console.log("Attempting logginout ");
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+
+    console.log("Attempting logginout complete ");
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 server.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
 });

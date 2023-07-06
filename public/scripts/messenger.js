@@ -283,4 +283,20 @@ function testMessageSend() {
     });
 }
 
+const logout = async (event) => {
+  alert("logout");
+  localStorage.removeItem("user");
+  let username = "testlogout";
+  let password = "testPassword";
+  const response = await fetch("/logout", {
+    method: "POST",
+    body: JSON.stringify({ username, password }),
+    headers: { "Content-Type": "application/json" },
+  });
+  if (response.ok) {
+    console.log(`User ${username} is successfully logout`);
+    document.location.assign("/");
+  }
+};
+
 getLoggedInUser();
