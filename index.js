@@ -6,7 +6,7 @@ const handlebars = require("express-handlebars");
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const sessions = require("express-session");
-
+const moment = require("moment");
 const utilhelpers = require("./utils/helpers");
 
 const app = express();
@@ -275,7 +275,7 @@ app.post("/sendSingleMessage", async (req, res) => {
       sendername: req.body.sendername,
       recevierID: req.body.recevierid,
       message: req.body.message,
-      createdAt: req.body.createdAt,
+      createdAt: new Date(req.body.time).toLocaleString("en-US"),
       myUser: myUserID === req.body.senderid,
     };
     res.render("partials/SingleMessage", {
@@ -316,7 +316,9 @@ app.post("/sendMessage", async (req, res) => {
         sendername: messageData.message.sendername,
         recevierID: messageData.message.recevierid,
         message: messageData.message.message,
-        createdAt: messageData.message.createdAt,
+        createdAt: new Date(messageData.message.createdAt).toLocaleString(
+          "en-US"
+        ),
         myUser: myUserID === messageData.message.senderid,
       };
       res.render("partials/SingleMessage", {
