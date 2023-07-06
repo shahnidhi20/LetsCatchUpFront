@@ -52,49 +52,30 @@ const signupFormHandler = async (event) => {
   console.log(`${username} ${email} ${user_password}`);
 
   if (username && email && user_password) {
-    const response = await fetch("/signUp", {
-      method: "POST",
-      body: JSON.stringify({ username, email, user_password }),
-      headers: { "Content-Type": "application/json" },
-    });
-    //document.location.assign("/chat");
-    if (response.ok) {
-      const result = await response.text();
-      console.log(result);
-      const userLogin = JSON.parse(result);
-      console.log(userLogin.user);
-      localStorage.setItem("user", JSON.stringify(userLogin.user));
+    try {
+      const response = await fetch("/register", {
+        method: "POST",
+        body: JSON.stringify({ username, email, user_password }),
+        headers: { "Content-Type": "application/json" },
+      });
 
-      // TODO: Show the details page
-      document.location.assign("/login");
+      if (response.ok) {
+        //show alert with register successfull.
+
+        document.location.assign("/");
+        alert("Your account is created. Please sign in!");
+        //localStorage.setItem("authToken", response.data.user);
+        // console.log(
+        //   "UserInfo",
+        //   response.json().then((user) => {
+        //    // localStorage.setItem("authUser", user.user.id);
+        //     console.log(user.user);
+        //   })
+        // );
+      }
+    } catch (error) {
+      console.error(error);
     }
-
-    // try {
-    //   const response = await fetch(
-    //     "http://localhost:5000/api/messenger/user-register",
-    //     {
-    //       method: "POST",
-    //       body: JSON.stringify({ username, email, user_password }),
-    //       headers: { "Content-Type": "application/json" },
-    //     }
-    //   );
-
-    //   if (response.ok) {
-    //     //show alert with register successfull.
-
-    //     document.location.assign("/login");
-    //     //localStorage.setItem("authToken", response.data.user);
-    //     // console.log(
-    //     //   "UserInfo",
-    //     //   response.json().then((user) => {
-    //     //    // localStorage.setItem("authUser", user.user.id);
-    //     //     console.log(user.user);
-    //     //   })
-    //     // );
-    //   }
-    // } catch (error) {
-    //   console.error(error);
-    // }
   }
 };
 

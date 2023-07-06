@@ -110,11 +110,8 @@ var session;
 app.get("/", (req, res) => {
   try {
     session = req.session;
-    if (session.username) {
-      res.render("chat", { formCSS: false, chatCSS: true });
-    } else {
-      res.render("login", { formCSS: true, chatCSS: false });
-    }
+
+    res.render("login", { formCSS: true, chatCSS: false });
   } catch (err) {
     console.error("Error loading login", err);
   }
@@ -338,6 +335,71 @@ app.post("/sendMessage", async (req, res) => {
 
   // Render the partial view and pass the data
   //res.render("partials/RightSide", { currentFriend: currentFriend });
+});
+
+app.post("/register", async (req, res) => {
+  try {
+    console.log("Registering...");
+    console.log(req.body);
+    //     {
+    // [1]   username: 'nid7',
+    // [1]   email: 'nid7@gmail.com',
+    // [1]   user_password: '123456789'
+    // [1] }
+    let username = req.body.username;
+    let user_password = req.body.user_password;
+    let email = req.body.email;
+    let profile_pic_path = "defaultProfile.jpeg";
+
+    if (username && user_password) {
+      console.log("Inside register");
+      // console.log(
+      //   "email" + email + "username: " + username,
+      //   "password: " + user_password
+      // );
+
+      // Send a POST request to the API endpoint
+      const response = await fetch(
+        `${process.env.API_SERVER_URL}/api/messenger/user-register`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            username,
+            email,
+            user_password,
+            profile_pic_path,
+          }),
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+        }
+      );
+
+      if (response.ok) {
+        console.log("registering Complete...");
+
+        const result = await response.text();
+
+        const userLogin = JSON.parse(result);
+
+        req.session.loggedIn = true;
+        req.session.username = username;
+        req.session.loggedUser = userLogin.userData;
+
+        console.log("Going to home");
+
+        res.status(200).json({
+          success: true,
+          user: userLogin.userData,
+        });
+      } else {
+        console.log("failed to register");
+      }
+    } else {
+      console.log("eroror");
+    }
+  } catch (err) {
+    console.error("Error in registering ", err);
+  }
 });
 
 server.listen(PORT, () => {
