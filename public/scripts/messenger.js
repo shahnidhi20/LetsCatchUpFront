@@ -284,7 +284,6 @@ function testMessageSend() {
 }
 
 const logout = async (event) => {
-  alert("logout");
   localStorage.removeItem("user");
   let username = "testlogout";
   let password = "testPassword";
