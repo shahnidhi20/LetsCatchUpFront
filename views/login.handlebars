@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="sign-in-sign-up">
+    <!--Sign in panel-->
+    <form action="" class="sign-in-f">
+      <h2 class="title">Sign In</h2>
+      <span class="loginF"></span>
+      <div class="input-field" id="userLog">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="Username" id="username-login" />
+      </div>
+      <div class="input-field" id="passLog">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Password" id="password-login" />
+      </div>
+      <input type="submit" value="Login" class="btn" id="btnLogin" />
+      <i class="fas fa-moon" onclick="darkMode()"></i>
+      <i class="fas fa-sun" onclick="lightMode()"></i>
+      <!--appears when on mobile screen-->
+      <p class="account-text">Don't have an account?
+        <a href="#" id="signUpBtnTwo">Sign up</a>
+      </p>
+    </form>
+    <!--Sign up panel-->
+    <form action="" class="sign-up-f">
+      <h2 class="title">Sign Up</h2>
+      <div class="input-field" id="username-Val">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="Username" id="username-signup" />
+      </div>
+      <div class="input-field" id="password-Val">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Password" id="password-signup" />
+        <span id="password-error">
+        </span>
+        <i id="error-icon-p" class="bx bx-error-circle error-icon"></i>
+      </div>
+      <div id="emailVal" class="input-field">
+        <i class="fas fa-envelope"></i>
+        <input
+          type="email"
+          id="email-signup"
+          onkeyup="validateEmail()"
+          placeholder="Email"
+        />
+        <span id="email-error"></span>
+        <i id="error-icon-email" class="bx bx-error-circle error-icon"></i>
+      </div>
+      <input type="submit" value="Sign Up" class="btn" id="btnSignup" />
+      <i class="fas fa-moon" onclick="darkMode()"></i>
+      <i class="fas fa-sun" onclick="lightMode()"></i>
+      <!--appears when on mobile screen-->
+      <p class="account-text">Already have an account?
+        <a href="#" id="signInBtnTwo">Sign in</a></p>
+    </form>
+  </div>
+  <div class="panels-container">
+    <div class="panel left-panel">
+      <div class="content">
+        <h3>Already have an account?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit dolore
+          veritatis expedita dolor ipsam voluptas nulla, deleniti doloribus
+          cumque?</p>
+        <button class="btn" id="signInBtn">Sign in</button>
+      </div>
+      <img
+        src="/style/images/undraw_mobile_user_re_xta4.svg"
+        alt=""
+        class="image"
+      />
+    </div>
+    <div class="panel right-panel">
+      <div class="content">
+        <h3>New to CatchUp?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit dolore
+          veritatis expedita dolor ipsam voluptas nulla, deleniti doloribus
+          cumque?</p>
+        <button class="btn" id="signUpBtn">Sign up</button>
+      </div>
+      <img
+        src="/style/images/undraw_public_discussion_re_w9up.svg"
+        class="image"
+      />
+    </div>
+  </div>
+</div>
+<script src="/scripts/app.js"></script>
+<script src="/scripts/mode.js"></script>
+<script src="/scripts/login.js"></script>

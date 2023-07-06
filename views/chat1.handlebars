@@ -1,0 +1,155 @@
+<div class="container">
+  <div class="sidebar">
+    <div class="profile">
+      <div class="profile-img">
+        <img src="./style/images/logo-letsCatchup.png" alt="" />
+
+      </div>
+      <div class="profile-data">
+        <h3>Let's Catch Up</h3>
+        <span>{{username}}</span>
+        <input id="spuserid">ID : {{id}}</input>
+      </div>
+    </div>
+
+    <div class="online">
+      <h3 class="title">Online <span>(+5)</span></h3>
+      <div class="online-ids">
+        <img src="./style/images/avatar_1.png" alt="avatar1" />
+        <img src="./style/images/avatar_2.png" alt="avatar1" />
+        <img src="./style/images/avatar_3.jpg" alt="avatar1" />
+        <img src="./style/images/avatar_4.jpg" alt="avatar1" />
+
+      </div>
+    </div>
+
+    {{! recent message  section }}
+    <div class="messages">
+      <h3 class="title">Messages <span>(+15)</span></h3>
+      <div class="recents active">
+        <div class="recent-img">
+          <img src="./style/images/avatar_1.png" alt="" />
+        </div>
+        <div class="recent-data">
+          <h3>Sia David</h3>
+          <span>You: Thanks :)</span>
+        </div>
+      </div>
+      <div class="recents">
+        <div class="recent-img">
+          <img src="./style/images/avatar_2.png" alt="" />
+        </div>
+        <div class="recent-data">
+          <h3>Sammy Young</h3>
+          <span>Typing...</span>
+        </div>
+      </div>
+      <div class="recents">
+        <div class="recent-img">
+          <img src="./style/images/avatar_3.jpg" alt="" />
+        </div>
+        <div class="recent-data">
+          <h3>Katty Messie</h3>
+          <span>You: see you later!</span>
+        </div>
+      </div>
+      <div class="recents">
+        <div class="recent-img">
+          <img src="./style/images/avatar_4.jpg" alt="" />
+        </div>
+        <div class="recent-data">
+          <h3>Michelle Burdman</h3>
+          <span>You: see you later!</span>
+        </div>
+      </div>
+
+      <div class="recents">
+        <div class="recent-img">
+          <img src="./style/images/avatar_5.png" alt="" />
+        </div>
+        <div class="recent-data">
+          <h3>Samuel Jim</h3>
+          <span>You: Bye!</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {{!-- {{! Message Box }} --}}
+
+  <div class="message-box">
+    <div class="box-top">
+      <div class="recents">
+        <div class="recent-img">
+          <img src="./style/images/avatar_1.png" alt="" />
+        </div>
+        <div class="recent-data">
+          <h3>Sia David</h3>
+          <span>Online Now</span>
+        </div>
+      </div>
+
+      <div class="call-actions">
+        <div class="action-icons">
+          <i class="fas fa-phone-alt"></i>
+          <i class="fas fa-video"></i>
+        </div>
+      </div>
+
+    </div>
+
+    {{! chat box }}
+
+    <div class="box">
+      {{! <div class="sender">
+        <div class="recents">
+          <div class="recent-img">
+            <img src="./style/images/avatar_1.png" />
+          </div>
+          <div class="recent-data">
+            <h3>Sia David <span class="time">10:02 AM</span></h3>
+            <span>Hi Sia, Whats going on?</span>
+          </div>
+        </div>
+      </div> }}
+
+      {{! <div class="receiver">
+        <div class="recents">
+
+          <div class="recent-data">
+            <h3><span class="time">10:02 AM</span> John David </h3>
+            <span>shall we meet at cafe today?</span>
+          </div>
+          <div class="recent-img">
+            <img src="./style/images/avatar_3.jpg" />
+          </div>
+        </div>
+      </div> }}
+
+      {{! <div class="sender two">
+        <div class="recents">
+          <div class="recent-img">
+            <img src="./style/images/avatar_1.png" />
+          </div>
+          <div class="recent-data">
+            <h3>Sia David <span class="time">10:02 AM</span></h3>
+            <span>Sure what time?</span>
+          </div>
+        </div>
+      </div> }}
+
+    </div>
+
+    <div class="input-box">
+      <img src="./style/images/avatar_3.jpg" alt="" />
+      <input id="messg-content" type="text" placeholder="Your Message" />
+      <i id="btnSendMessage" class="fas fa-paper-plane send right-align"></i>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="./scripts/chat.js"></script>
+<script src=“/socket.io/socket.io.js”></script>

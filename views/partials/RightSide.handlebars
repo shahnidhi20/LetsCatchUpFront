@@ -1,0 +1,78 @@
+<div class="col-12">
+
+  <div class="right-side">
+    <input type="checkbox" id="dot">
+    <div class="row">
+      <div class="col-8">
+        <div class="message-send-show">
+          <div class="message-send-header">
+            <div class="message-send-image-name">
+              <div class="message-send-image">
+                <img src="./style/images/{{currentFriend.profile_pic_path}}" alt="" />
+             {{#if currentFriend.activeStatus}}
+             <div class='div-active-icon'></div>
+             {{/if}}
+             </div>
+              <div id="receiverUser" class="message-send-name" data-value="{{currentFriend.receiverID}}">
+                <h3>{{currentFriend.receiverUserName}}</h3>
+              </div>
+            </div>
+
+            <div class="icons">
+              <div class="icon">
+                <i class="fa fa-phone" aria-hidden="true" style="color:var(--icon-color)"></i>
+
+              </div>
+              <div class="icon">
+                <i class="fa fa-video-camera" aria-hidden="true" style="color:var(--icon-color)"></i>
+
+              </div>
+              <div class="icon">
+                <label for="dot">
+                      <i class="fa fa-rocket" aria-hidden="true" style="color:var(--icon-color)"></i>
+                </label> 
+              </div>
+            </div>
+
+          </div>
+          
+    
+          <div id="showmessagediv" class="message-show">
+             {{>Message messages=allmessages myuserid=currentFriend.senderID profilepic=profilepic }}
+          </div>
+          
+
+          <div class="message-send-section">
+            <div class="message-type">
+                <input
+                  type="text"
+                  name="message"
+                  id="message"
+                  placeholder="Aa"
+                  class="form-control"
+                  onchange="messageChange()"
+                />
+                {{!-- <div class="file hover-gift" > --}}
+                  {{!-- <label for="emoji"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+                  </label> --}}
+                {{!-- </div> --}}
+              </div>
+
+              <div class="file" onclick="sendMessage()">
+                {{!-- <i class="fa fa-heart" aria-hidden="true"></i> --}}
+                <i class="fa fa-paper-plane" style="color:green" aria-hidden="true"></i>  
+              </div>
+          </div>
+         
+
+        </div>
+      </div>
+
+      <div class="col-4">
+        {{>FriendInfo name=currentFriend.receiverUserName pic=currentFriend.profile_pic_path aStatus=currentFriend.activeStatus}}
+      </div>
+
+    </div>
+  </div>
+
+</div>

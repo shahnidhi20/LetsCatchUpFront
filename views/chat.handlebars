@@ -1,0 +1,83 @@
+
+
+<div class="messenger">
+  <div class="row">
+    <div class="col-3">
+      <div class="left-side">
+        <div class="top">
+          <div class="image-name">
+            <div id="myInfoID" class="image" data-value="{{loggedInUser.id}}">
+              <img src="./style/images/{{loggedInUser.profile_pic_path}}" alt="" />
+            </div>
+            <div id="myName" class="name" data-value="{{loggedInUser.username}}">
+             
+              <h3>Hi {{loggedInUser.username}} </h3></div>
+          </div>
+
+          <div class="icons">
+            <div class="icon">
+              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+            </div>
+            <div class="icon">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </div>
+          </div>
+
+        </div>
+        <div class="friend-search">
+          <div class="search">
+            <button><i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+            <input type="text" placeholder="search" class="form-control" />
+          </div>
+        </div>
+
+        <div id="activeUsersDiv"" class="active-friends">
+            {{!-- {{> ActiveFriends}} --}}
+        </div>
+
+        <div class="friends">
+         {{#if friends}}
+          
+          {{#each friends.listofFriends as |friend|}}
+         
+          <div class="hover-friend" id="div_{{friend.id}}" data-id="{{friend.id}}" onclick="someFunc(this,{{json this}})">
+          
+         
+            
+                {{> Friends}}
+           
+            </div>
+          {{/each}}
+          {{else}}
+          <div class="hover-friend">
+                No Friends found
+            </div>
+          {{/if}} 
+
+        
+          
+        </div>
+      </div>
+    </div>
+
+
+    
+<div id="rightsidePartialContainer" class="col-9">
+  
+</div>
+
+    
+    
+    
+
+  </div>
+
+</div>
+
+<script src="/scripts/messenger.js"></script>
+
+{{!-- <script>
+  var socket = io();
+</script> --}}
+

@@ -1,0 +1,27 @@
+{{! logged in user message }}
+{{#if data.myUser}}
+  <div class="my-message">
+    <div class="image-message">
+      <div class="my-text">
+        <p class="message-text">{{data.message}}</p>
+      </div>
+    </div>
+    <div class="time">
+      2 June 2023
+    </div>
+  </div>
+{{else}}
+  <div class="fd-message">
+    <div class="image-message-time">
+      <img src="./style/images/receiver.jpeg" alt="" />
+      <div class="fd-message-time">
+        <div class="fd-text">
+          <p class="message-text">{{data.message}}</p>
+        </div>
+        <div class="fd-time">
+          2 June 2023
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
